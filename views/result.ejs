@@ -1,0 +1,1286 @@
+<html>
+
+<head>
+    <title>Result </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <style>
+        .centered-text,
+        .btnclass,
+        #reg-no {
+            margin-left: 40%;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: rgb(105, 26, 7);
+
+        }
+
+        .sem {
+            /* display: none; */
+        }
+
+        .select-box {
+            margin-left: 20%;
+            margin-top: -2.5%;
+        }
+
+        .btnclass {
+            display: flex;
+            float: center;
+            justify-self: center;
+            align-items: center;
+        }
+
+        .btn {
+            float: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            background-color: #65aee2;
+            margin: 4px 2px;
+        }
+
+        .btn:hover {
+            box-shadow: 0px 12px 16px 0 palegoldenrod, 0 17px 50 px 0 palegoldenrod;
+        }
+
+        table {
+            border: 1px solid black;
+            width: 100%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        th {
+            width: 15%;
+            height: 60%;
+            border-bottom: 1px solid gray;
+        }
+
+        td {
+            height: 60px;
+            width: 15%;
+            text-align: center;
+            border-bottom: 1px solid gray;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(109, 10, 23);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .student-details {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        .sem-intro {
+            color: rgb(8, 32, 97);
+        }
+
+        .dept-name {
+            color: rgb(24, 103, 105);
+        }
+
+        .session {
+            color: rgb(211, 13, 89);
+        }
+    </style>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("select").change(function(){
+                    $(this).find("option:selected").each(function(){
+                        var opt = $(this).attr("value");
+                        if(opt){$env:DEBUG=
+                            $(".sem").not("."+opt).hide();
+                            $("."+opt).show();
+                        }
+                        else{
+                            $(".sem").hide();
+                        }
+                    });
+                }).change();
+            });
+        </script> -->
+</head>
+
+<body>
+    <div class="img-fluid" style="background-color: #B85C38;">
+
+        <img id="Image2" class="rounded mx-auto d-block" src="/images/jsr.png" style="width: 100px; ">
+        <blockquote class="blockquote text-center">
+            <h4><span style="text-align: center;  color: #ffffff;">National Institute of Technology Jamshedpur,
+                    Jamshedpur</span></h4>
+        </blockquote>
+        <blockquote class="blockquote text-center">
+            <h5><span style="text-align: center;  color: #ffffff;">राष्ट्रीय प्रौद्योगिकी संस्थान ,जमशेदपुर</span></h5>
+        </blockquote>
+        <blockquote class="blockquote text-center">
+            <h6><span style="text-align: center;  color: #ffffff;"> An Institute of National Importance Established by
+                    Government of
+                    India</span></h6>
+        </blockquote>
+        <div style="text-align: right;" class="table_Heading">
+            <span id="lbldate"><%= currentDate %></span>
+            | <b><span id="lbltime" style="font-weight: 700; padding-right:2rem;"><%= currentTime %></span></b>
+        </div>
+        <div style="text-align: right;" class="table_Heading">
+            <i><span id="lbluser" class="table_Heading" style="font-weight:bold; padding-right:2rem;">Welcome
+                    <%= u_name %> </span></i>
+
+        </div>
+    </div>
+    <nav class=" navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/dashboard" style="padding-left: 1rem;">Examination</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/dashboard">Time Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Answer Script</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/result">Result Process</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Instructions
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">For convert image file to pdf you can use many free
+                            tools or websites like <a href="https://www.ilovepdf.com/jpg_to_pdf"
+                                class="auto-style3">https://www.ilovepdf.com/jpg_to_pdf </a>etc.</a>
+                        <a class="dropdown-item" href="#">Question paper will visible under Examination -&gt; Paper
+                            Submission <a href="#" class="auto-style3">(You can click here
+                                also)</a></a>
+                        <a class="dropdown-item" href="#">The duration of examination is mentioned on SOP.</a>
+                        <a class="dropdown-item" href="#">Students are required to upload all answers in maximum 4 pages
+                            which can be
+                            extended up to 6 pages (in exceptional cases).</a>
+                        <a class="dropdown-item" href="#">The answer sheet should be uploaded in <span
+                                class="auto-style3">PDF
+                                format</span> on online portal.
+                            <span class="auto-style3">The file name must be your REGISTRATION NUMBER</span>.</a>
+                        <a class="dropdown-item" href="#">The scanned answer script should be clearly visible.</a>
+                        <a class="dropdown-item" href="#">The student should write name, registration no, subject code,
+                            subject name and
+                            put their full signature on top of the each page.</a>
+                        <a class="dropdown-item" href="#">There will be strict check for similarity. If the concerned
+                            course faculty
+                            observes similarity among answer sheets then it may not be evaluated.
+                            The final decision in this regard taken by concern faculty.</a>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <div class="navbar-header" style="float: right; ">
+            <a class="navbar-brand" href="/signout" style="color: rgb(255, 81, 0);">Logout</a>
+        </div>
+    </nav>
+    <form method='post'>
+        <h2 class="centered-text">SEMESTER RESULT</h2>
+        <div class="student-details">
+            <!-- <div id="Mca first sem" class="sem-intro"><h3>M.C.A - FIRST SEMESTER EXAMINATION (2020 - BATCH) HELD IN THE MONTH OF DEC-2020</h3></div>
+                <div id="dept-name"  class="dept-name"><h4>MASTER OF COMPUTER APPLICATIONS</h4></div> -->
+        </div>
+
+        <script>
+            function populate(s1, s2) {
+                var s1 = document.getElementById(s1);
+                var s2 = document.getElementById(s2);
+                s2.innerHTML = "";
+                if (s1.value == "mca") {
+                    var optionArray = ["Select Semester|Select Semester", "I|I", "II|II", "III|III", "IV|IV", "V|V",
+                        "VI|VI"
+                    ];
+                } else if (s1.value == "btech") {
+                    var optionArray = ["Select Semester|Select Semester", "I|I", "II|II", "III|III", "IV|IV", "V|V",
+                        "VI|VI", "VII|VII", "VIII|VIII"
+                    ];
+                } else {
+                    var optionArray = ["Select Semester|Select Semester"];
+                }
+                for (var option in optionArray) {
+                    var pair = optionArray[option].split("|");
+                    var newOption = document.createElement("option");
+                    newOption.value = pair[0];
+                    newOption.innerHTML = pair[1];
+                    s2.options.add(newOption);
+                }
+            }
+        </script>
+        <br>
+        <div class="centered-text">Department :
+            <div class="select-box"> <select id=" slct1" name="slct1" onchange="populate(this.id,'slct2')">
+                    <option>Select Department </option>
+                    <option value="mca">MCA</option>
+                    <option value="btech">BTech</option>
+                    <br>
+
+                </select>
+
+            </div>
+        </div>
+        <br>
+        <div class="centered-text">Semester:
+
+            <div class="select-box">
+                <select id="slct2" name="slct2">
+                    <option>Select Semester</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        </select>
+        <div class="centered-text">
+            <label>Registration Number : </label>
+            <div class="select-box"> <input class="regno" type="text" value='' name="regd" width="50px" required>
+            </div>
+        </div>
+        <br><br>
+
+        <br><br>
+        <div class="btnclass" style="display: flex; justify-self: center;">
+            <button type="submit" class="btn">SEARCH</button>
+        </div>
+    </form>
+
+    <div class="I sem">
+        <% if(records!='' ){ %>
+        <% if(records[0].sem=='I' ){ %>
+        <table id="result-process">
+            <!-- <div id="student-name">Name:Shubham Yadav</div> -->
+
+            <div id="reg-no">Registration No.: <%= records[0].regd %>
+            </div>
+            <!-- <div id="session" class="session"><h2>Session:2020-21</h2></div> -->
+            <tr>
+                <th>Sr. no</th>
+                <th>Subject code</th>
+                <th>Subject name</th>
+                <th>Assignment</th>
+                <th>Test</th>
+                <th>Mid sem</th>
+                <th>End sem</th>
+                <th>Total Marks</th>
+                <th>Credits</th>
+            </tr>
+            <tr>
+
+                <td>1</td>
+                <td>CA3101</td>
+                <td>Computer Programming and Problem Solving Using C</td>
+                <td>
+                    <%= records[0].CA3101.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3101.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3101.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3101.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3101.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>CA3102</td>
+                <td>Computer Organization and Architecture</td>
+                <td>
+                    <%= records[0].CA3102.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3102.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3102.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3102.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3102.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>CA3103</td>
+                <td>Resource Management Techniques</td>
+                <td>
+                    <%= records[0].CA3103.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3103.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3103.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3103.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3103.total %>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>CA3104</td>
+                <td>Computer Programming in C LAB</td>
+                <td>
+                    <%= records[0].CA3104.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3104.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3104.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3104.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3104.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>CA3105</td>
+                <td>Statistical and Optimization Techniques LAB</td>
+                <td>
+                    <%= records[0].CA3105.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3105.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3105.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3105.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3105.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>MA3101</td>
+                <td>Mathematical Foundation of Computer Application</td>
+                <td>
+                    <%= records[0].MA3101.assignment %>
+                </td>
+                <td>
+                    <%= records[0].MA3101.test %>
+                </td>
+                <td>
+                    <%= records[0].MA3101.mid %>
+                </td>
+                <td>
+                    <%= records[0].MA3101.end %>
+                </td>
+                <td>
+                    <%= records[0].MA3101.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>MA3102</td>
+                <td>Probability and Statistical Computing</td>
+                <td>
+                    <%= records[0].MA3102.assignment %>
+                </td>
+                <td>
+                    <%= records[0].MA3102.test %>
+                </td>
+                <td>
+                    <%= records[0].MA3102.mid %>
+                </td>
+                <td>
+                    <%= records[0].MA3102.end %>
+                </td>
+                <td>
+                    <%= records[0].MA3102.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    result:
+                </td>
+                <td>
+                    sgpa:
+                </td>
+                <td>
+                    cgpa:
+                </td>
+            </tr>
+        </table>
+        <% } %>
+        <% if(records[0].sem=='II' ){ %>
+        <table id="result-process">
+            <!-- <div id="student-name">Name:Shubham Yadav</div> -->
+
+            <div id="reg-no">Registration No.: <%= records[0].regd %>
+            </div>
+            <!-- <div id="session" class="session"><h2>Session:2020-21</h2></div> -->
+            <tr>
+                <th>Sr. no</th>
+                <th>Subject code</th>
+                <th>Subject name</th>
+                <th>Assignment</th>
+                <th>Test</th>
+                <th>Mid sem</th>
+                <th>End sem</th>
+                <th>Total Marks</th>
+                <th>Credits</th>
+            </tr>
+            <tr>
+
+                <td>1</td>
+                <td>CA3201</td>
+                <td>Object Oriented Programming using C++</td>
+                <td>
+                    <%= records[0].CA3201.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3201.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3201.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3201.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3201.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>CA3202</td>
+                <td>Data Structures</td>
+                <td>
+                    <%= records[0].CA3202.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3202.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3202.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3202.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3202.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>CA3203</td>
+                <td>Object Oriented Analysis and Design</td>
+                <td>
+                    <%= records[0].CA3203.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3203.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3203.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3203.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3203.total %>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>CA3204</td>
+                <td>Operating System</td>
+                <td>
+                    <%= records[0].CA3204.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3204.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3204.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3204.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3204.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>CA3205</td>
+                <td>Numerical Computing LAB</td>
+                <td>
+                    <%= records[0].CA3205.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3205.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3205.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3205.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3205.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>CA3206</td>
+                <td>Data Structures LAB</td>
+                <td>
+                    <%= records[0].CA3206.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3206.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3206.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3206.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3206.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>MA3201</td>
+                <td>Numericals Methods</td>
+                <td>
+                    <%= records[0].MA3201.assignment %>
+                </td>
+                <td>
+                    <%= records[0].MA3201.test %>
+                </td>
+                <td>
+                    <%= records[0].MA3201.mid %>
+                </td>
+                <td>
+                    <%= records[0].MA3201.end %>
+                </td>
+                <td>
+                    <%= records[0].MA3201.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    result:
+                </td>
+                <td>
+                    sgpa:
+                </td>
+                <td>
+                    cgpa:
+                </td>
+            </tr>
+        </table>
+        <% } %>
+        <% if(records[0].sem=='III' ){ %>
+        <table id="result-process">
+            <!-- <div id="student-name">Name:Shubham Yadav</div> -->
+
+            <div id="reg-no">Registration No.: <%= records[0].regd %>
+            </div>
+            <!-- <div id="session" class="session"><h2>Session:2020-21</h2></div> -->
+            <tr>
+                <th>Sr. no</th>
+                <th>Subject code</th>
+                <th>Subject name</th>
+                <th>Assignment</th>
+                <th>Test</th>
+                <th>Mid sem</th>
+                <th>End sem</th>
+                <th>Total Marks</th>
+                <th>Credits</th>
+            </tr>
+            <tr>
+
+                <td>1</td>
+                <td>CA3301</td>
+                <td>Database Management System</td>
+                <td>
+                    <%= records[0].CA3301.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3301.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3301.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3301.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3301.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>CA3302</td>
+                <td>Computer Communication and Networks</td>
+                <td>
+                    <%= records[0].CA3302.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3302.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3302.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3302.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3302.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>CA3303</td>
+                <td>Design and Analysis of Algorithm</td>
+                <td>
+                    <%= records[0].CA3303.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3303.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3303.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3303.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3303.total %>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>CA3304</td>
+                <td>Computer Graphics</td>
+                <td>
+                    <%= records[0].CA3304.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3304.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3304.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3304.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3304.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>CA3305</td>
+                <td>Java Programming</td>
+                <td>
+                    <%= records[0].CA3305.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3305.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3305.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3305.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3305.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>CA3306</td>
+                <td>Database Management Lab</td>
+                <td>
+                    <%= records[0].CA3306.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3306.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3306.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3306.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3306.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>CA3307</td>
+                <td>Computer Graphics & Java Programming Lab</td>
+                <td>
+                    <%= records[0].CA3307.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3307.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3307.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3307.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3307.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    result:
+                </td>
+                <td>
+                    sgpa:
+                </td>
+                <td>
+                    cgpa:
+                </td>
+            </tr>
+        </table>
+        <% } %>
+
+        <% if(records[0].sem=='IV' ){ %>
+        <table id="result-process">
+            <!-- <div id="student-name">Name:Shubham Yadav</div> -->
+
+            <div id="reg-no">Registration No.: <%= records[0].regd %>
+            </div>
+            <!-- <div id="session" class="session"><h2>Session:2020-21</h2></div> -->
+            <tr>
+                <th>Sr. no</th>
+                <th>Subject code</th>
+                <th>Subject name</th>
+                <th>Assignment</th>
+                <th>Test</th>
+                <th>Mid sem</th>
+                <th>End sem</th>
+                <th>Total Marks</th>
+                <th>Credits</th>
+            </tr>
+            <tr>
+
+                <td>1</td>
+                <td>CA3401</td>
+                <td>Software Engineering</td>
+                <td>
+                    <%= records[0].CA3401.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3401.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3401.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3401.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3401.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>CA3402</td>
+                <td>Artificial Intelligence</td>
+                <td>
+                    <%= records[0].CA3402.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3402.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3402.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3402.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3402.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>CA3403</td>
+                <td>Internet and Web Technology</td>
+                <td>
+                    <%= records[0].CA3403.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3403.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3403.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3403.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3403.total %>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>CA3404</td>
+                <td>Elective - I</td>
+                <td>
+                    <%= records[0].CA3404.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3404.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3404.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3404.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3404.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>CA3405</td>
+                <td>Elective - II</td>
+                <td>
+                    <%= records[0].CA3405.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3405.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3405.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3405.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3405.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>CA3406</td>
+                <td> Web Technology Lab</td>
+                <td>
+                    <%= records[0].CA3406.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3406.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3406.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3406.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3406.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>CA3407</td>
+                <td>Elective LAB</td>
+                <td>
+                    <%= records[0].CA3407.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3407.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3407.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3407.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3407.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    result:
+                </td>
+                <td>
+                    sgpa:
+                </td>
+                <td>
+                    cgpa:
+                </td>
+            </tr>
+        </table>
+        <% } %>
+
+        <% if(records[0].sem=='V' ){ %>
+        <table id="result-process">
+            <!-- <div id="student-name">Name:Shubham Yadav</div> -->
+
+            <div id="reg-no">Registration No.: <%= records[0].regd %>
+            </div>
+            <!-- <div id="session" class="session"><h2>Session:2020-21</h2></div> -->
+            <tr>
+                <th>Sr. no</th>
+                <th>Subject code</th>
+                <th>Subject name</th>
+                <th>Assignment</th>
+                <th>Test</th>
+                <th>Mid sem</th>
+                <th>End sem</th>
+                <th>Total Marks</th>
+                <th>Credits</th>
+            </tr>
+            <tr>
+
+                <td>1</td>
+                <td>HS3501</td>
+                <td>Financial Management</td>
+                <td>
+                    <%= records[0].HS3501.assignment %>
+                </td>
+                <td>
+                    <%= records[0].HS3501.test %>
+                </td>
+                <td>
+                    <%= records[0].HS3501.mid %>
+                </td>
+                <td>
+                    <%= records[0].HS3501.end %>
+                </td>
+                <td>
+                    <%= records[0].HS3501.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HS3502</td>
+                <td>Organization Behaviour and Management</td>
+                <td>
+                    <%= records[0].HS3502.assignment %>
+                </td>
+                <td>
+                    <%= records[0].HS3502.test %>
+                </td>
+                <td>
+                    <%= records[0].HS3502.mid %>
+                </td>
+                <td>
+                    <%= records[0].HS3502.end %>
+                </td>
+                <td>
+                    <%= records[0].HS3502.total %>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>CA3501</td>
+                <td>Unix & Shell Programming</td>
+                <td>
+                    <%= records[0].CA3501.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3501.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3501.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3501.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3501.total %>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>CA3502</td>
+                <td>Elective - III</td>
+                <td>
+                    <%= records[0].CA3502.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3502.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3502.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3502.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3502.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>CA3503</td>
+                <td>Elective - IV</td>
+                <td>
+                    <%= records[0].CA3503.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3503.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3503.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3503.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3503.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>CA3504</td>
+                <td> OS and Network Lab</td>
+                <td>
+                    <%= records[0].CA3504.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3504.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3504.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3504.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3504.total %>
+                </td>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>CA3505</td>
+                <td>Mini Project Work</td>
+                <td>
+                    <%= records[0].CA3505.assignment %>
+                </td>
+                <td>
+                    <%= records[0].CA3505.test %>
+                </td>
+                <td>
+                    <%= records[0].CA3505.mid %>
+                </td>
+                <td>
+                    <%= records[0].CA3505.end %>
+                </td>
+                <td>
+                    <%= records[0].CA3505.total %>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    result:
+                </td>
+                <td>
+                    sgpa:
+                </td>
+                <td>
+                    cgpa:
+                </td>
+            </tr>
+        </table>
+        <% } %>
+
+        <% if(records[0].sem=='V' ){ %>
+        <table id="result-process">
+            <!-- <div id="student-name">Name:Shubham Yadav</div> -->
+
+            <div id="reg-no">Registration No.: <%= records[0].regd %>
+            </div>
+            <!-- <div id="session" class="session"><h2>Session:2020-21</h2></div> -->
+            <tr>
+                <th>Sr. no</th>
+                <th>Subject code</th>
+                <th>Subject name</th>
+                <th>Project</th>
+                <th>Tota</th>
+
+            </tr>
+            <tr>
+
+                <td>1</td>
+                <td>CA3601</td>
+                <td>Thesis/Project/Industrial Project</td>
+                <td>
+                    <%= records[0].CA3601.Project %>
+                </td>
+                <td>
+                    <%= records[0].CA3601.total %>
+                </td>
+                <td>
+                    <%= records[0].HS3501.mid %>
+                </td>
+                <td>
+                    <%= records[0].HS3501.end %>
+                </td>
+                <td>
+                    <%= records[0].HS3501.total %>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    result:
+                </td>
+                <td>
+                    sgpa:
+                </td>
+                <td>
+                    cgpa:
+                </td>
+            </tr>
+        </table>
+        <% } %>
+        <% } %>
+    </div>
+
+    <div class="pt-5">
+        <footer style="padding: 5px; background-color: #999999;">
+            <center>
+                <p style="text-align: center">
+                    CopyRight &copy; <%= moment().format('YYYY')  %>,
+                    <a href="http://www.nitjsr.ac.in" target="_blank" class="textformat_header"
+                        style="color: #0d47a1;">National
+                        Institute of Technology, Jamshedpur.</a>
+                </p>
+            </center>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>
